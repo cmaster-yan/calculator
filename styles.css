@@ -2,6 +2,8 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    background-color: #202124;
+    color: white
 }
 #container {
     width: 300px;
@@ -20,17 +22,89 @@ body {
     min-width: 70px;
     min-height: 70px;
     font-size: 20px;
+    margin: 2px;
+    border: 3px solid rgba(100, 100, 100, 0.1);
+    border-radius: 40px;
+    cursor: pointer;
+    color: #fff;
+    box-shadow: 0 2px 4px rgb(74, 79, 79);
+    background-size: 300%;
+    transition: 0.3s;
 }
+#buttons>button:hover {
+        background-color: #3e8e41;
+        color: white;
+}
+.btn-\= {
+    background-image: linear-gradient(to bottom, #9528ea, #9628eac0)
+}
+.btn-\+ {
+    background-color:  #9528ea
+}
+.btn-\- {
+    background-color:  #9528ea
+}
+.btn-\* {
+    background-color:  #9528ea
+}
+.btn-\/ {
+    background-image: linear-gradient(to bottom, #9628eac0, #9528ea)
+}
+.btn-AC {
+    background-image: linear-gradient(to right, #fbb62a, #d59411);
+}
+.btn-⌫ {
+    background-image: linear-gradient(to right, #484037, #4c443a);  
+}
+.btn-\+\/- {
+    background-image: linear-gradient(to right, #484037, #4c443a);
+}
+.btn-0 {
+    background-color:#33373a
+}
+.btn-1 {
+    background-color:#33373a
+}
+.btn-2 {
+    background-color:#33373a
+}
+.btn-3 {
+    background-color:#33373a
+}
+.btn-4 {
+    background-color:#33373a
+}
+.btn-5 {
+    background-color:#33373a
+}
+.btn-6 {
+    background-color:#33373a
+}
+.btn-7 {
+    background-color:#33373a
+}
+.btn-8 {
+    background-color:#33373a
+}
+.btn-9 {
+    background-color:#33373a
+}
+.btn-\. {
+    background-color: #3e8e41;
+}
+
 
 #screen {
     display: flex;
     border: 2px solid #ccc;
+    border-radius: 3px;
     min-height: 50px;
     min-width: 50px;
     justify-content: flex-end;
     align-items: flex-end;
     font-size: 40px;
     padding: 5px;
+    margin-bottom: 4px;
 }
 
 .btn-0 {

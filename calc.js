@@ -139,7 +139,7 @@ function pressButton(button){
                     display.innerText = display.innerText.replace('-', '');
                 }
                 break;
-            case 'btn-C':
+            case 'btn-⌫':
                 if (lastPressed == 'num') {
                     if (display.innerText.length == 1 || display.innerText.length == 2 && display.innerText.includes('-')) {
                         display.innerText = 0;
