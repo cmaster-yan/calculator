@@ -21,7 +21,7 @@ function pressButton(button){
     if (isNumber()){
         switch(button.getAttribute('class')) {
             case 'btn-0':
-                if(pressed == 1){
+                if(lastPressed == 'op'){
                     display.innerText = 0;
                 }
                 if(display.innerText == '0'){
@@ -31,7 +31,7 @@ function pressButton(button){
                 lastPressed = 'num';
                 break;
             case 'btn-1':
-                if(pressed == 1){
+                if(lastPressed == 'op'){
                     display.innerText = 0;
                 }
                 if(display.innerText == '0'){
@@ -41,7 +41,7 @@ function pressButton(button){
                 lastPressed = 'num';
                 break;
             case 'btn-2':
-                if(pressed == 1){
+                if(lastPressed == 'op'){
                     display.innerText = 0;
                 }
                 if(display.innerText == '0'){
@@ -51,7 +51,7 @@ function pressButton(button){
                 lastPressed = 'num';
                 break;
             case 'btn-3':
-                if(pressed == 1){
+                if(lastPressed == 'op'){
                     display.innerText = 0;
                 }
                 if(display.innerText == '0'){
@@ -61,7 +61,7 @@ function pressButton(button){
                 lastPressed = 'num';
                 break;
             case 'btn-4':
-                if(pressed == 1){
+                if(lastPressed == 'op'){
                     display.innerText = 0;
                 }
                 if(display.innerText == '0'){
@@ -71,7 +71,7 @@ function pressButton(button){
                 lastPressed = 'num';
                 break;
             case 'btn-5':
-                if(pressed == 1){
+                if(lastPressed == 'op'){
                     display.innerText = 0;
                 }
                 if(display.innerText == '0'){
@@ -81,7 +81,7 @@ function pressButton(button){
                 lastPressed = 'num';
                 break;
             case 'btn-6':
-                if(pressed == 1){
+                if(lastPressed == 'op'){
                     display.innerText = 0;
                 }
                 if(display.innerText == '0'){
@@ -91,7 +91,7 @@ function pressButton(button){
                 lastPressed = 'num';
                 break;
             case 'btn-7':
-                if(pressed == 1){
+                if(lastPressed == 'op'){
                     display.innerText = 0;
                 }
                 if(display.innerText == '0'){
@@ -101,7 +101,7 @@ function pressButton(button){
                 lastPressed = 'num';
                 break;
             case 'btn-8':
-                if(pressed == 1){
+                if(lastPressed == 'op'){
                     display.innerText = 0;
                 }
                 if(display.innerText == '0'){
@@ -111,7 +111,7 @@ function pressButton(button){
                 lastPressed = 'num';
                 break;
             case 'btn-9':
-                if(pressed == 1){
+                if(lastPressed == 'op'){
                     display.innerText = 0;
                 }
                 if(display.innerText == '0'){
@@ -132,12 +132,22 @@ function pressButton(button){
                 pressed = 0;
                 break;
             case 'btn-+/-':
-                operand1 += button.innerText;
-                display.innerText = operand1;
+                if (!display.innerText.includes('-') && display.innerText != 0){
+                    display.innerText = '-' + display.innerText;
+                }
+                else {
+                    display.innerText = display.innerText.replace('-', '');
+                }
                 break;
-            case 'btn-%':
-                operand1 += button.innerText;
-                display.innerText = operand1;
+            case 'btn-C':
+                if (lastPressed == 'num') {
+                    if (display.innerText.length == 1 || display.innerText.length == 2 && display.innerText.includes('-')) {
+                        display.innerText = 0;
+                    }
+                    else {
+                        display.innerText = display.innerText.replace(display.innerText[display.innerText.length - 1], '');
+                    }
+                }
                 break;
             case 'btn-/':
                 if (lastPressed == 'op'){
@@ -240,15 +250,21 @@ function pressButton(button){
                 }
                 break;
             case 'btn-=':
+                if (operand1 != '' && operator != ''){
                 lastPressed = 'op';
                 operand2 = display.innerText;
                 display.innerText = operate(operand1, operator, operand2);
                 operand1 = display.innerText;
                 operand2 = ''
+                }
+                else {
+                    break;
+                }
                 break;
             case 'btn-.':
-                operand1 += button.innerText;
-                display.innerText = operand1;
+                if (!display.innerText.includes('.')){
+                    display.innerText += '.';
+                }
                 break;
         }
     }
